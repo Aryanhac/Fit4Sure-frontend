@@ -2,8 +2,6 @@ import React, { useState } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import cn from "classnames";
 import styles from "./Footer.module.sass";
-import Subscription from "../Subscription";
-import Theme from "../Theme";
 import Icon from "../Icon";
 import Image from "../Image";
 
