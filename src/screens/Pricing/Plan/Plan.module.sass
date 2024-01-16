@@ -1,8 +1,5 @@
 @import ../../../styles/helpers
 
-.section
-    +dark
-        background: none
 
 .stage
     margin-bottom: 16px
@@ -26,8 +23,6 @@
         padding: 48px 32px 64px
         background: $neutrals8
         border-radius: 24px
-        +dark
-            background: $neutrals2
     &:first-child
         flex: 0 0 350px
         +d
@@ -39,11 +34,7 @@
     &:nth-child(3)
         border-radius: 24px
         background: $neutrals8
-        +dark
-            background: $neutrals2
-            .parameter,
-            .tick
-                border-color: rgba($neutrals4, .3)
+
     &:not(:first-child)
         padding-bottom: 54px
         text-align: center
@@ -139,8 +130,6 @@
     align-items: center
     height: 64px
     border-bottom: 1px solid $neutrals6
-    +dark
-        border-color: $neutrals2
     svg
         fill: $green
 
@@ -190,11 +179,6 @@
         top: 50%
         transform: translateY(-50%)
         +arr(6,12,$neutrals8,l)
-    +dark
-        background: $neutrals3
-        box-shadow: 0 4px 12px rgba($neutrals1, .1)
-        &:before
-            +arr(6,12,$neutrals3,l)
     
 .tick
     justify-content: center
