@@ -31,8 +31,7 @@ const Consultancy = () => {
                     <div className={styles.headline}>Transform your health and start your journey to fitness today with the Fit4Sure</div>
                     <div className={styles.description}>Fit4Sure helps track your workouts, get better results, and be the best version of you. Less thinking!</div>
                 </div>
-                <div className={styles.form}>
-                    <form onSubmit={handleSubmit}>
+                    <form onSubmit={handleSubmit} className={styles.form}>
                         <div>
                             <div>
                                 <label className={styles.label}>
@@ -85,7 +84,6 @@ const Consultancy = () => {
                             <button type="submit" className={cn('button',styles.button)}>Get Consultancy</button>
                         </div>
                     </form>
-                </div>
             </div>
         </div>
     )

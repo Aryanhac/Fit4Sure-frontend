@@ -11,7 +11,7 @@ const Offer = ({ className }) => {
           try it today🎾
         </div>
         <h2 className={cn("h1", styles.title)}>
-          Anywhere you want. Anytime you want.
+          Anywhere you want.<br></br><span>Anytime you want.</span> 
         </h2>
         <div className={styles.text}>
           Get started with tips and strategies from the best

@@ -54,15 +54,13 @@ const Carousel = () => {
     };
 
     return (
-        <div className={cn("container", styles.container)} id='carousal'>
-        <div className={styles.heading1}>Check out our features</div>
-        <div className={styles.heading2}>Check out the different services offered</div>
+        <div className={cn("section", styles.section)}>
+      <div className={cn("container", styles.container)}>
+        <h2 className={cn("hero", styles.title)}>Check out our <span>features</span></h2>
+        <div className={styles.info}>
+        Check out the different services offered
+        </div>
         <div className={styles.history}>
-        {/* <div className={styles.backgroundImage}>
-                <img src="/images/CarousalBg.svg" alt="carousal-bg" className={styles.carousalBg}></img>
-                <img src="/images/CarousalsmallBg.svg" alt="carousal-bg" className={styles.carousalsmallBg1}></img>
-                <img src="/images/CarousalsmallBg.svg" alt="carousal-bg" className={styles.carousalsmallBg2}></img>
-        </div> */}
             <div className={styles.wrap}>
                 <Slider className="history-slider" {...settings}>
                     {items.map((x, index) => (
@@ -104,7 +102,8 @@ const Carousel = () => {
                 </Slider>
             </div>
         </div>
-        </div>
+      </div>
+    </div>
     );
 };
 
