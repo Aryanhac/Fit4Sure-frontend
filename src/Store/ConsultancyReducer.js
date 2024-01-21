@@ -33,7 +33,7 @@ const createConsultancySlice = createSlice({
 // admin Slice
 const adminConsultancySlice = createSlice({
     name: 'adminConsultancy',
-    initialState: { loading: false, error: false, success: false, form: [], isUpdated: false },
+    initialState: { loading: false, error: false, success: false, forms: [], isUpdated: false, form:{}, updateSuccess:false },
     reducers: {
         clearError(state, action) {
             state.error = false;
@@ -43,6 +43,9 @@ const adminConsultancySlice = createSlice({
         },
         clearUpdate: (state, action) => {
             state.isUpdated = false;
+        },
+        clearUpdateSuccess: (state, action) => {
+            state.updateSuccess = false;
         }
     },
     extraReducers: (builder) => {
@@ -54,7 +57,7 @@ const adminConsultancySlice = createSlice({
             .addCase(getConsultancyForms.fulfilled, (state, action) => {
                 state.loading = false;
                 state.error = false;
-                state.form = action.payload.forms;
+                state.forms = action.payload.forms;
                 state.success = true;
             })
             .addCase(getConsultancyForms.rejected, (state, action) => {
@@ -70,7 +73,7 @@ const adminConsultancySlice = createSlice({
             .addCase(getConsultancyForm.fulfilled, (state, action) => {
                 state.loading = false;
                 state.error = false;
-                state.form = action.payload.forms;
+                state.form = action.payload.form;
                 state.success = true;
             })
             .addCase(getConsultancyForm.rejected, (state, action) => {
@@ -86,7 +89,7 @@ const adminConsultancySlice = createSlice({
             .addCase(updateConsultancy.fulfilled, (state, action) => {
                 state.loading = false;
                 state.error = false;
-                state.success = true;
+                state.updateSuccess = true;
             })
             .addCase(updateConsultancy.rejected, (state, action) => {
                 state.loading = false;

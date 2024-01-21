@@ -1,15 +1,18 @@
 import { createSlice } from "@reduxjs/toolkit";
-import {getTrainers, getTrainer, addTrainer, updateTrainer, assignTrainer} from "./TrainerActions";
+import {getTrainers, getTrainer, addTrainer, updateTrainer, assignTrainer, deleteTrainer} from "./TrainerActions";
 
 const trainerSlice = createSlice({
     name: 'Trainer',
-    initialState: { loading: false, error: false, success: false, trainer:[] },
+    initialState: { loading: false, error: false, success: false, trainers:[],trainer:{}, deleteSuccess: false},
     reducers: {
         clearError(state, action) {
             state.error = false;
         },
         clearSuccess: (state, action) => {
             state.success = false;
+        },
+        clearDeleteSuccess: (state, action)=>{
+            state.deleteSuccess= false;
         }
     },
     extraReducers: (builder) => {
@@ -22,7 +25,7 @@ const trainerSlice = createSlice({
                 state.loading = false;
                 state.error = false;
                 state.success = true;
-                state.trainer = action.payload.trainers
+                state.trainers = action.payload.trainers
             })
             .addCase(getTrainers.rejected, (state, action) => {
                 state.loading = false;
@@ -37,7 +40,7 @@ const trainerSlice = createSlice({
                 state.loading = false;
                 state.error = false;
                 state.success = true;
-                state.trainer = action.payload.trainers
+                state.trainer = action.payload.trainer
             })
             .addCase(getTrainer.rejected, (state, action) => {
                 state.loading = false;
@@ -54,6 +57,20 @@ const trainerSlice = createSlice({
                 state.success = true;
             })
             .addCase(addTrainer.rejected, (state, action) => {
+                state.loading = false;
+                state.error = action.payload;
+            });
+        //assignTrainer
+        builder
+            .addCase(deleteTrainer.pending, (state, action) => {
+                state.loading = true;
+            })
+            .addCase(deleteTrainer.fulfilled, (state, action) => {
+                state.loading = false;
+                state.error = false;
+                state.deleteSuccess = true;
+            })
+            .addCase(deleteTrainer.rejected, (state, action) => {
                 state.loading = false;
                 state.error = action.payload;
             });
