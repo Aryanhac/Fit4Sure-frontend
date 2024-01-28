@@ -14,11 +14,10 @@ const Hero = ({ scrollToRef }) => {
                         Train smarter. get stronger
                     </div>
                     <h1 className={cn("h1", styles.title)}>
-                        Simple fitness experience for everyone.
+                        Achieve Your Dream Fitness Goals Affordably & Effectively With Fit4Sure!
                     </h1>
                     <div className={styles.text}>
-                        Track your workouts, get better results, and be the
-                        bestversion of you. Less thinking, more lifting.
+                        With budget-friendly pricing, our online fitness coaching matches you to your own personal trainer who designs a customized workout plan tailored to your body, goals, and lifestyle needs.
                     </div>
                     <div className={styles.btns}>
                         <Link

@@ -5,32 +5,32 @@ import ScrollParallax from "../../../components/ScrollParallax";
 
 const items = [
   {
-    title: "Visit Our Website",
+    title: "Register With Us",
     color: "#3772FF",
     images: "/images/content/download.svg",
     content:
-      "Fitness Pro tracks your workouts, get better results, and be the best version of you.",
+      "Register with us and start your fitness journey with ease. ",
   },
   {
-    title: "Explore Our Feature",
+    title: "Select Your Trainer",
     color: "#9757D7",
     images: "/images/content/whistle.svg",
     content:
-      "Fitness Pro tracks your workouts, get better results, and be the best version of you.",
+      "Browse our expert fitness team and pick your personal coach for a customized workout experience."
   },
   {
-    title: "Get Consultancy",
+    title: "Set Your Goals",
     color: "#EF466F",
     images: "/images/content/medal.svg",
     content:
-      "Fitness Pro tracks your workouts, get better results, and be the best version of you.",
+      "Consult with your trainer to define clear fitness targets. We tailor plans to fit your ambitions!",
   },
   {
-    title: "Get you plan",
+    title: "Schedule Workouts",
     color: "#45B26B",
     images: "/images/content/stopwatch.svg",
     content:
-      "Fitness Pro tracks your workouts, get better results, and be the best version of you.",
+      "Choose convenient workout times via the app. Fit4Sure ensures every session is enjoyable and effective.",
   },
 ];
 
@@ -41,8 +41,7 @@ const Steps = ({ scrollToRef }) => {
         <div className={styles.head}>
           <h2 className={cn("h2", styles.title)}>How it works</h2>
           <div className={styles.info}>
-            Stacks is a production-ready library of stackable content blocks
-            built in React.
+            Start Your Fit4Sure Journey in 4 Easy Steps!
           </div>
         </div>
         <div className={styles.list}>

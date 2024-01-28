@@ -7,6 +7,7 @@ import Pricing from "./screens/Pricing";
 import Lifestyle from "./screens/Lifestyle";
 import Article from "./screens/Article";
 import AdminDashboard from "./screens/AdminDashBoard";
+import Login from "./screens/Login";
 
 function App() {
     return (
@@ -57,6 +58,14 @@ function App() {
                     element={
                         <Page>
                             <AdminDashboard />
+                        </Page>
+                    }
+                />
+                <Route
+                    path="admin/login"
+                    element={
+                        <Page>
+                            <Login/>
                         </Page>
                     }
                 />
