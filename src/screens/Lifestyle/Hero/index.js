@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import cn from "classnames";
 import styles from "./Hero.module.sass";
-import History from "./History";
+// import History from "./History";
 import Item from "./Item";
 import ScrollParallax from "../../../components/ScrollParallax";
 
@@ -198,7 +198,7 @@ const Hero = () => {
           Track your workouts, get better results, and be the best version of
           you. Less thinking, more lifting.
         </div>
-        <History />
+        {/* <History /> */}
         <div className={styles.nav}>
           {items.map((x, index) => (
             <button

@@ -1,3 +1,4 @@
+import React,{useEffect} from "react";
 import { Routes, Route } from "react-router-dom";
 import "./styles/app.sass";
 import Page from "./components/Page";
@@ -8,8 +9,17 @@ import Lifestyle from "./screens/Lifestyle";
 import Article from "./screens/Article";
 import AdminDashboard from "./screens/AdminDashBoard";
 import Login from "./screens/Login";
+import {useDispatch} from 'react-redux'
+import { loadUser } from "./Store/UserAction";
+import ProtectedRouter from "./components/ProtectedRouter";
 
 function App() {
+    const dispatch=useDispatch();
+
+    useEffect(()=>{
+        dispatch(loadUser("hello"));
+    },[dispatch]); 
+
     return (
         <Routes>
             <Route path="/">
@@ -57,7 +67,7 @@ function App() {
                     path="adminDashBoard"
                     element={
                         <Page>
-                            <AdminDashboard />
+                           <AdminDashboard></AdminDashboard>
                         </Page>
                     }
                 />

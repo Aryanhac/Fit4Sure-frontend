@@ -8,29 +8,43 @@
     background-color: rgba(2, 0, 0, 0.4)
     z-index: 2
     
-
-.detail
-    width: 400px
-    min-height: 500px
+.form
+    width: 700px
+    height: 520px
     background: white
-    display: flex
-    flex-direction: column
     border-radius: 10px
     padding: 10px
+    display: flex
+    flex-direction: column
+    justify-content: center
 
-.detail > label
+.form > h2
+    margin-left: 30px 
+
+.detail
+    display: flex
+    justify-content: center
+    align-content: center
+    
+
+.coloumn
+    display: flex
+    flex-direction: column
+    width: 45%
+
+.coloumn > label
     margin: 6px
     display: flex
     flex-direction: column
 
-.detail > label >input
+.coloumn > label >input
     border: 2px solid #E2E1E5
     height: 30px
     border-radius: 4px
     width: 90%
     padding-left: 5px
 
-.detail > label > select
+.coloumn > label > select
     border: 2px solid #E2E1E5
     height: 30px
     border-radius: 4px
@@ -44,6 +58,7 @@
 .button
     width: 50%
     cursor: pointer
+    margin-top: 10px
 
 .specialties > label
     margin: 5px

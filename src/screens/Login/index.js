@@ -1,12 +1,36 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import styles from './Login.module.sass'
-import { TextField, Button, Typography } from '@mui/material';
-import cn from 'classnames';
-
+import { TextField, Button, Typography } from '@mui/material'
+import cn from 'classnames'
+import { useDispatch, useSelector } from 'react-redux'
+import { getOTP, otpVerification } from '../../Store/UserAction'
+import { useAlert } from 'react-alert'
+import { userActions } from '../../Store/UserReducer'
+import { useNavigate} from 'react-router-dom';
 const Login = () => {
 
   const [mobileNumber, setMobileNumber] = useState('');
   const [submit, setSubmit] = useState(false);
+  const {error, isAuthenticated, otpSend } = useSelector((state) => state.user);
+  const dispatch = useDispatch();
+  const alert = useAlert();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (error) { //if error come
+      alert.error(error);
+      dispatch(userActions.clearError());// for clearing the error
+    };
+    if(otpSend){
+      alert.success('OTP has been sent');
+      setSubmit(true);
+      dispatch(userActions.clearOtpSend());
+    }
+    if (isAuthenticated) {
+      navigate('/adminDashBoard');
+    }
+  }, [isAuthenticated, otpSend, error, alert, dispatch, navigate]);
+
 
   const handleMobileNumberChange = (event) => {
     setMobileNumber(event.target.value);
@@ -14,9 +38,9 @@ const Login = () => {
 
   const handleMobileSubmit = (event) => {
     event.preventDefault();
+    console.log(mobileNumber)
     // Handle form submission logic here
-    console.log('Submitted Mobile Number:', mobileNumber);
-    setSubmit(true);
+    dispatch(getOTP({phoneNumber: mobileNumber}));
   };
 
   const [otp, setOTP] = useState('');
@@ -27,9 +51,7 @@ const Login = () => {
 
   const handleOTPSubmit = (event) => {
     event.preventDefault();
-    // Handle OTP verification logic here
-    console.log('Submitted OTP:', otp);
-    // Add your OTP verification logic
+    dispatch(otpVerification({phoneNumber:mobileNumber, otp}));
   };
 
   return (
@@ -67,7 +89,7 @@ const Login = () => {
             Submit
           </Button>
         </form> :
-        <form className={styles.formContainer} onSubmit={{handleOTPSubmit}}>
+        <form className={styles.formContainer} onSubmit={handleOTPSubmit}>
           <Typography variant="h5"  className={styles.heading}>
             OTP Verification
           </Typography>

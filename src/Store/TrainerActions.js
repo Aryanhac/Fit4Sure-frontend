@@ -29,10 +29,10 @@ const addTrainer = createAsyncThunk("post/addTrainer", async (data,{rejectWithVa
     }
 });
 
-const updateTrainer = createAsyncThunk("update/updateTrainer", async (id,{rejectWithValue}) => {
+const updateTrainer = createAsyncThunk("update/updateTrainer", async (data,{rejectWithValue}) => {
     try {
         const config={headers:{"Content-Type":"multipart/form-data"},withCredentials:true};
-        const response = await axios.put(`http://localhost:4000/api/updateTrainer/${id}`,config);
+        const response = await axios.put(`http://localhost:4000/api/updateTrainer/${data.id}`,data.form,config);
         return response.data;
     } catch (error) {
         return rejectWithValue(error.response.data.message);

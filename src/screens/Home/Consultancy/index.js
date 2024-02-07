@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import styles from "./Consultancy.module.sass";
 import cn from 'classnames';
-import { useSelector, useDispatch } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { submitConsultancyForm } from '../../../Store/ConsultancyActions'
 
 const Consultancy = () => {
