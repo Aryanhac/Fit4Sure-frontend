@@ -23,9 +23,9 @@ const Item = ({ item, className }) => {
       <div className={styles.title}>{item.title}</div>
       <div className={styles.foot}>
         <div className={styles.user}>
-          <div className={styles.avatar}>
+          {/* <div className={styles.avatar}>
             <img src={item.avatar} alt="Avatar" />
-          </div>
+          </div> */}
           <div className={styles.author}>{item.author}</div>
         </div>
         <div className={styles.date}>{item.date}</div>

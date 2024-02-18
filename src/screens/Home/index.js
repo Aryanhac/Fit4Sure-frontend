@@ -9,6 +9,7 @@ import Offer from "../../components/Offer";
 import VideoPlayer from "./VideoPlayer";
 import Carousel from "./Carousel";
 import  Consultancy  from "./Consultancy";
+import Review from "../../components/Review";
 
 
 const Home = () => {
@@ -18,14 +19,15 @@ const Home = () => {
     <>
       <Hero scrollToRef={scrollToRef} />
       <Clients />
-      <VideoPlayer/>
+      {/* <VideoPlayer/> */}
       <Steps scrollToRef={scrollToRef} />
-      <Carousel/>
+      {/* <Carousel/> */}
+      <Review/>
+      <Consultancy/>
       <Intro />
       {/* BMI */}
-      <Consultancy/>
       <Workouts />
-      <Offer className="section-border-top" />
+      {/* <Offer className="section-border-top" /> */}
     </>
   );
 };

@@ -6,11 +6,20 @@ import Image from "../Image";
 import ScrollParallax from "../ScrollParallax";
 
 const items = [
-  "Fit4Sure Cloud",
-  "Syncs with Google Fit",
-  "Syncs with Apple Health",
-  "Track your progress easily",
-  "Intuitive and clean design",
+ "Personalized Training",
+"Customized Diet Plans",
+"Nutritional Guidance",
+"Calorie Management",
+"Fitness Tracking",
+"Progress Monitoring",
+"Goal Setting",
+"Meal Planning Assistance",
+"One-on-One Support",
+"Expert Advice",
+// "Community Support",
+// "Flexible Subscription Options",
+// "App Support",
+
 ];
 
 const Workouts = () => {
@@ -44,11 +53,11 @@ const Workouts = () => {
         </div>
         <div className={styles.wrap}>
           <h2 className={cn("h2", styles.title)}>
-            All your workouts, <br></br>in your pocket
+          Why to Choose Fit4Sure,   <br></br>Weight Loss Program
           </h2>
           <div className={styles.info}>
-            Fit4Sure helps track your workouts, get better results, and be
-            the best version of you. Less thinking!
+          Fit4Sure is your go-to weight loss program offering personalized plans, expert guidance, and proven results at an affordable price.
+
           </div>
           <ul className={styles.list}>
             {items.map((x, index) => (
@@ -58,8 +67,8 @@ const Workouts = () => {
             ))}
           </ul>
           <div className={styles.btns}>
-            <Link className={cn("button", styles.button)} to="/pricing">
-              Choose Plan
+            <Link className={cn("button", styles.button)} to="/services">
+            Explore Plans
             </Link>
           </div>
         </div>

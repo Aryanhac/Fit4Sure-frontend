@@ -3,7 +3,7 @@ import {getTrainers, getTrainer, addTrainer, updateTrainer, assignTrainer, delet
 
 const trainerSlice = createSlice({
     name: 'Trainer',
-    initialState: { loading: false, error: false, success: false, trainers:[],trainer:{}, deleteSuccess: false},
+    initialState: { loading: false, error: false, success: false, trainers:[],trainer:{}, deleteSuccess: false, addSuccess: false, updateSuccess: false},
     reducers: {
         clearError(state, action) {
             state.error = false;
@@ -13,7 +13,14 @@ const trainerSlice = createSlice({
         },
         clearDeleteSuccess: (state, action)=>{
             state.deleteSuccess= false;
+        },
+        clearAddSuccess: (state, action)=>{
+            state.addSuccess= false;
+        },
+        clearUpdateSuccess: (state, action)=>{
+            state.updateSuccess = false
         }
+
     },
     extraReducers: (builder) => {
         // getTrainerList
@@ -54,7 +61,7 @@ const trainerSlice = createSlice({
             .addCase(addTrainer.fulfilled, (state, action) => {
                 state.loading = false;
                 state.error = false;
-                state.success = true;
+                state.addSuccess = true;
             })
             .addCase(addTrainer.rejected, (state, action) => {
                 state.loading = false;
@@ -82,8 +89,7 @@ const trainerSlice = createSlice({
             .addCase(updateTrainer.fulfilled, (state, action) => {
                 state.loading = false;
                 state.error = false;
-                state.success = true;
-                state.trainer=action.payload.trainer;
+                state.updateSuccess = true;
             })
             .addCase(updateTrainer.rejected, (state, action) => {
                 state.loading = false;

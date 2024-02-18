@@ -10,19 +10,30 @@ import TrainerForm from './TrainerForm';
 import cn from 'classnames';
 import { Delete } from '@material-ui/icons'
 import { trainerAction } from '../../../Store/TrainerReducer';
+import { useAlert } from 'react-alert'
 
 const Trainer = () => {
   const [currentID, setCurrentID] = useState(null);
   const dispatch = useDispatch();
-  const { trainers,deleteSuccess } = useSelector((state) => state.trainer);
+  const { trainers,deleteSuccess, error, addSuccess, updateSuccess } = useSelector((state) => state.trainer);
   const [form, setForm] = useState(0);
-  
+  const alert = useAlert();
+
   useEffect(() => {
+    if(error){
+      console.log(error);
+      alert.error(error);
+      dispatch(trainerAction.clearError());
+    }
+
     if (deleteSuccess) {
       dispatch(trainerAction.clearDeleteSuccess());
+      alert.success('Trainer has been deleted');
     }
+
+
     dispatch(getTrainers("hello"));
-  }, [dispatch,form,deleteSuccess]);
+  }, [dispatch,deleteSuccess, addSuccess,error, updateSuccess]);
 
   //for deleting 
   const deletefunc = (id) => {

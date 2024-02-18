@@ -17,9 +17,6 @@ const Post = () => {
             <div className={styles.info}>
               Yoga, meaning "union" in Sanskrit, is more than just a physical exercise. It is a holistic system that intertwines the mind, body, and spirit. With roots dating back over 5,000 years, yoga has evolved into various styles and practices, each offering a unique approach to achieving harmony and balance.{" "}
             </div>
-            <div className={styles.preview}>
-              <img src="/images/content/post-pic.png" alt="Post pic" />
-            </div>
             <div className={styles.content}>
               <p>
                 The ancient yogis sought to understand the essence of existence and the interconnectedness of all things. Today, yoga serves as a timeless guide, providing tools to navigate the complexities of contemporary life.

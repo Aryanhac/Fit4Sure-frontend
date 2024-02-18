@@ -7,35 +7,43 @@ import Image from "../Image";
 
 const menu = [
     {
-        title: "Lifestyle",
-        url: "/lifestyle",
+        title: "Home",
+        url: "/",
     },
     {
-        title: "Pricing",
-        url: "/pricing",
+        title: "Privacy Policy",
+        url: "/fit4Sure-privacyPolicy",
     },
     {
-        title: "Features",
-        url: "/features",
-    }
+        title: "Terms and Conditions",
+        url: "/fit4Sure-termsAndConditions",
+    },
+    {
+        title: "Cancellation and Refund",
+        url: "/fit4Sure-cancellationAndRefund",
+    },
+    {
+        title: "Shipping and Delivery Policy",
+        url: "/fit4Sure-shippingAndDeliveryPolicy",
+    },
 ];
 
 const socials = [
     {
         title: "facebook",
         size: "16",
-        url: "https://www.facebook.com/ui8.net/",
-    },
-    {
-        title: "twitter",
-        size: "18",
-        url: "https://twitter.com/ui8",
+        url: " https://www.facebook.com/Fit4SureFitness",
     },
     {
         title: "instagram",
+        size: "18",
+        url: "https://www.instagram.com/fit4surefitness/ ",
+    },
+    {
+        title: "linkedin",
         size: "16",
-        url: "https://www.instagram.com/ui8net/",
-    }
+        url: "https://www.linkedin.com/company/fit4surefitness/",
+    },
 ];
 
 const Footer = () => {

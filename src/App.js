@@ -12,6 +12,10 @@ import Login from "./screens/Login";
 import {useDispatch} from 'react-redux'
 import { loadUser } from "./Store/UserAction";
 import ProtectedRouter from "./components/ProtectedRouter";
+import PrivacyPolicy from "./screens/PrivacyPolicy";
+import ShippingAndDeliveryPolicy from "./screens/ShippingAndDeliveryPolicy";
+import TermsAndConditions from "./screens/TermsAndConditions";
+import CancellationAndRefund from "./screens/CancellationAndRefund";
 
 function App() {
     const dispatch=useDispatch();
@@ -32,15 +36,7 @@ function App() {
                     }
                 />
                 <Route
-                    path="about"
-                    element={
-                        <Page>
-                            <Features />
-                        </Page>
-                    }
-                />
-                <Route
-                    path="pricing"
+                    path="services"
                     element={
                         <Page>
                             <Pricing />
@@ -48,7 +44,7 @@ function App() {
                     }
                 />
                 <Route
-                    path="lifestyle"
+                    path="blogs"
                     element={
                         <Page>
                             <Lifestyle />
@@ -67,7 +63,7 @@ function App() {
                     path="adminDashBoard"
                     element={
                         <Page>
-                           <AdminDashboard></AdminDashboard>
+                           <ProtectedRouter><AdminDashboard></AdminDashboard></ProtectedRouter>
                         </Page>
                     }
                 />
@@ -76,6 +72,38 @@ function App() {
                     element={
                         <Page>
                             <Login/>
+                        </Page>
+                    }
+                />
+                <Route
+                    path="fit4Sure-privacyPolicy"
+                    element={
+                        <Page>
+                            <PrivacyPolicy/>
+                        </Page>
+                    }
+                />
+                <Route
+                    path="fit4Sure-termsAndConditions"
+                    element={
+                        <Page>
+                            <TermsAndConditions/>
+                        </Page>
+                    }
+                />
+                <Route
+                    path="fit4Sure-cancellationAndRefund"
+                    element={
+                        <Page>
+                            <CancellationAndRefund/>
+                        </Page>
+                    }
+                />
+                <Route
+                    path="fit4Sure-shippingAndDeliveryPolicy"
+                    element={
+                        <Page>
+                            <ShippingAndDeliveryPolicy/>
                         </Page>
                     }
                 />

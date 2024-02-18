@@ -26,7 +26,7 @@ const otpVerification = createAsyncThunk("post/postOTPVerification", async (data
 // getting user after loading the page 
 const loadUser = createAsyncThunk("get/getLoadUser", async (data,{rejectWithValue}) => {
     try {
-        const response = await axios.get(`http://localhost:3000/api/profile`,{withCredentials:true});
+        const response = await axios.get(`http://localhost:4000/api/profile`,{withCredentials:true});
         return response.data;
     } catch (error) {
         return rejectWithValue(error.response.data.message);
@@ -36,7 +36,7 @@ const loadUser = createAsyncThunk("get/getLoadUser", async (data,{rejectWithValu
 //LogOut
 const logOutUser= createAsyncThunk("get/getLogOut", async (data,{rejectWithValue}) => {
     try {
-        const response = await axios.get(`http://localhost:3000/api/logOut`,{withCredentials:true});
+        const response = await axios.get(`http://localhost:4000/api/logOut`,{withCredentials:true});
         return response.data;
     } catch (error) {
         return rejectWithValue(error.response.data.message);

@@ -4,7 +4,7 @@ import styles from "./Item.module.sass";
 import Icon from "../../../../components/Icon";
 import ScrollParallax from "../../../../components/ScrollParallax";
 
-const Item = ({ item }) => {
+const Item = ({ item, ans }) => {
     const [visible, setVisible] = useState(false);
 
     return (
@@ -20,7 +20,7 @@ const Item = ({ item }) => {
             </div>
             <div className={cn(styles.body, { [styles.visible]: visible })}>
                 <div className={styles.row}>
-                    <div className={styles.col}>
+                    {/* <div className={styles.col}>
                         <div className={styles.preview}>
                             <img
                                 srcSet="/images/content/faq-pic@2x.png 2x"
@@ -31,20 +31,15 @@ const Item = ({ item }) => {
                                 <Icon name="play" size="14" />
                             </button>
                         </div>
-                    </div>
-                    <div className={styles.col}>
-                        <div className={styles.info}>
+                    </div> */}
+                    {/* <div className={styles.col}> */}
+                        {/* <div className={styles.info}>
                             You don’t need to do anything else
-                        </div>
+                        </div> */}
                         <div className={styles.content}>
-                            <p>
-                                A yoga mat provides a stable and comfortable surface for your practice, helping with grip and cushioning during poses and exercises.
-                            </p>
-                            <p>
-                                A yoga towel is often used to absorb sweat and provide a non-slip surface. It can be particularly useful in hot yoga classes.
-                            </p>
+                            <p>{ans}</p>
                         </div>
-                    </div>
+                    {/* </div> */}
                 </div>
             </div>
         </ScrollParallax>

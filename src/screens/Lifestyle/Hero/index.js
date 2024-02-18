@@ -193,10 +193,10 @@ const Hero = () => {
   return (
     <div className={cn("section", styles.section)}>
       <div className={cn("container", styles.container)}>
-        <h2 className={cn("hero", styles.title)}>Lifestyle</h2>
+        <h2 className={cn("hero", styles.title)}>Fit4Sure Weight Loss Guide</h2>
         <div className={styles.info}>
-          Track your workouts, get better results, and be the best version of
-          you. Less thinking, more lifting.
+        Explore insightful articles and expert tips on our Fit4Sure blog section. From weight loss strategies to nutrition advice and workout routines, we've got you covered. Stay informed, motivated, and inspired on your fitness journey with our engaging blog content. Start reading now and take the next step towards a healthier lifestyle! 
+
         </div>
         {/* <History /> */}
         <div className={styles.nav}>

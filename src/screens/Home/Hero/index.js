@@ -11,26 +11,26 @@ const Hero = ({ scrollToRef }) => {
             <div className={cn("container", styles.container)}>
                 <div className={styles.wrap}>
                     <div className={cn("stage", styles.stage)}>
-                        Train smarter. get stronger
+                        START YOUR WEIGHT LOSS JOURNEY
                     </div>
                     <h1 className={cn("h1", styles.title)}>
-                        Achieve Your Dream Fitness Goals Affordably & Effectively With Fit4Sure!
+                       Achieve Your Dream Weight Loss Fitness Goals Starting at Just ₹ 999 per month* at Fit4Sure
                     </h1>
                     <div className={styles.text}>
-                        With budget-friendly pricing, our online fitness coaching matches you to your own personal trainer who designs a customized workout plan tailored to your body, goals, and lifestyle needs.
+                     With budget-friendly pricing, our online weight loss fitness program matches you to your own personal trainer who designs a customized workout plan tailored to your body, weight loss goals, and lifestyle needs. 
                     </div>
                     <div className={styles.btns}>
                         <Link
                             className={cn("button", styles.button)}
                             to='https://wa.me/9897446147?text="Hello Are you from Fit4Sure?"'
                         >
-                            WhatsApp Us
+                            What’s App
                         </Link>
                         <Link
                             className={cn("button-stroke", styles.button)}
-                            onClick={() => window.location.replace("/#consultancy")}
+                            to="/services"
                         >
-                            Get Consultancy
+                            Explore Plans
                         </Link>
                     </div>
                 </div>
@@ -45,34 +45,14 @@ const Hero = ({ scrollToRef }) => {
                 <div className={styles.gallery}>
                     <div className={styles.preview}>
                         <Image
-                            srcSet="/images/content/watch@2x.png 2x"
-                            srcSetDark="/images/content/watch-dark@2x.png 2x"
-                            src="/images/content/watch.png"
-                            srcDark="/images/content/watch-dark.png"
+                            srcSet="https://img.freepik.com/premium-photo/beautiful-slim-woman-with-tape-measuring_488220-70794.jpg?w=740"
+                            srcSetDark="https://img.freepik.com/premium-photo/beautiful-slim-woman-with-tape-measuring_488220-70794.jpg?w=740"
+                            src="https://img.freepik.com/premium-photo/beautiful-slim-woman-with-tape-measuring_488220-70794.jpg?w=740"
+                            srcDark="/images/main.jpg"
                             alt="Watch"
                         />
                     </div>
-                    <div className={styles.preview}>
-                        <img
-                            srcSet="/images/content/ball@2x.png 2x"
-                            src="/images/content/ball.png"
-                            alt="Ball"
-                        />
-                    </div>
-                    <div className={styles.preview}>
-                        <img
-                            srcSet="/images/content/bottle@2x.png 2x"
-                            src="/images/content/bottle.png"
-                            alt="Bottle"
-                        />
-                    </div>
-                    <div className={styles.preview}>
-                        <img
-                            srcSet="/images/content/ball-black@2x.png 2x"
-                            src="/images/content/ball-black.png"
-                            alt="Ball black"
-                        />
-                    </div>
+                    
                 </div>
             </div>
         </div>

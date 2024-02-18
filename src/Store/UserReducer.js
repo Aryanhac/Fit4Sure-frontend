@@ -4,14 +4,17 @@ import { getOTP, otpVerification, loadUser, logOutUser } from "./UserAction";
 // State for user
 const userSlice = createSlice({
     name: 'UserLogIn',
-    initialState: { user: {}, loading: false, error: false, isAuthenticated: false, otpSend: false },
+    initialState: { user: {}, loading: false, error: false,loadUserError: false, isAuthenticated: false, otpSend: false },
     reducers: {
         clearError(state, action) {
             state.error = false;
         },
         clearOtpSend(state, action) {
             state.otpSend = false;
-        }
+        },
+        clearLoadUserError(state, action) {
+            state.loadUserError = false;
+        },
     },
     extraReducers: (builder) => {
         builder
@@ -48,13 +51,13 @@ const userSlice = createSlice({
             })
             .addCase(loadUser.fulfilled, (state, action) => {
                 state.loading = false;
-                state.error = false;
+                state.loadUserError = false;
                 state.isAuthenticated = true;
-                state.user = action.payload.user;
+                
             })
             .addCase(loadUser.rejected, (state, action) => {
                 state.loading = false;
-                state.error = action.payload;
+                state.loadUserError = action.payload;
             })
             // logOut
             .addCase(logOutUser.pending, (state, action) => {

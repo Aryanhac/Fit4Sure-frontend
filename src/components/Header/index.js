@@ -7,16 +7,12 @@ import Image from "../Image";
 
 const navLinks = [
     {
-        title: "About",
-        url: "/about",
-    },
-    {
         title: "Services",
-        url: "/pricing",
+        url: "/services",
     },
     {
         title: "Blogs",
-        url: "/lifestyle",
+        url: "/blogs",
     },
 ];
 
@@ -24,17 +20,17 @@ const socials = [
     {
         title: "facebook",
         size: "16",
-        url: "/",
-    },
-    {
-        title: "twitter",
-        size: "18",
-        url: "/",
+        url: " https://www.facebook.com/Fit4SureFitness",
     },
     {
         title: "instagram",
+        size: "18",
+        url: "https://www.instagram.com/fit4surefitness/ ",
+    },
+    {
+        title: "linkedin",
         size: "16",
-        url: "/",
+        url: "https://www.linkedin.com/company/fit4surefitness/",
     },
 ];
 
@@ -125,7 +121,7 @@ const Headers = () => {
                             )}
                             to='https://wa.me/9897446147?text="Hello Are you from Fit4Sure?"'
                         >
-                            WhatsApp us
+                            What’s App
                         </Link>
                         <Link
                             className={cn(
@@ -135,7 +131,7 @@ const Headers = () => {
                             onClick={() => window.location.replace("/#consultancy")}
                             smooth={true}
                         >
-                            Get Consultancy
+                            FREE Consulting
                         </Link>
                     </div>
                 </div>
@@ -144,14 +140,14 @@ const Headers = () => {
                     to='https://wa.me/9897446147?text="Hello Are you from Fit4Sure?"'
                     target="_blank"
                 >
-                    WhatsApp Us
+                    What’s App
                 </Link>
                 <Link
                     className={cn("button-stroke button-small", styles.button)}
                     onClick={() => window.location.replace("/#consultancy")}
                     smooth={true}
                 >
-                    Get Consultancy
+                    FREE Consulting
                 </Link>
                 <button
                     className={cn(styles.burger, {

@@ -3,7 +3,7 @@ import axios from "axios";
 
 const getTrainers = createAsyncThunk("get/getTrainers", async (data,{rejectWithValue}) => {
     try {
-        const response = await axios.get('http://localhost:4000/api/getTrainers');
+        const response = await axios.get('http://localhost:4000/api/getTrainers',{withCredentials:true});
         return response.data;
     } catch (error) {
         return rejectWithValue(error.response.data.message);
@@ -12,7 +12,7 @@ const getTrainers = createAsyncThunk("get/getTrainers", async (data,{rejectWithV
 
 const getTrainer = createAsyncThunk("get/getTrainer", async (id,{rejectWithValue}) => {
     try {
-        const response = await axios.get(`http://localhost:4000/api/getTrainer/${id}`);
+        const response = await axios.get(`http://localhost:4000/api/getTrainer/${id}`,{withCredentials:true});
         return response.data;
     } catch (error) {
         return rejectWithValue(error.response.data.message);
@@ -21,7 +21,7 @@ const getTrainer = createAsyncThunk("get/getTrainer", async (id,{rejectWithValue
 
 const addTrainer = createAsyncThunk("post/addTrainer", async (data,{rejectWithValue}) => {
     try {
-        const config={headers:{"Content-Type":"application/json"}};
+        const config={headers:{"Content-Type":"application/json"},withCredentials:true};
         const response = await axios.post('http://localhost:4000/api/addTrainer',data,config);
         return response.data;
     }catch(error) {
@@ -31,7 +31,7 @@ const addTrainer = createAsyncThunk("post/addTrainer", async (data,{rejectWithVa
 
 const updateTrainer = createAsyncThunk("update/updateTrainer", async (data,{rejectWithValue}) => {
     try {
-        const config={headers:{"Content-Type":"multipart/form-data"},withCredentials:true};
+        const config={headers:{'Content-Type': 'application/json'},withCredentials:true};
         const response = await axios.put(`http://localhost:4000/api/updateTrainer/${data.id}`,data.form,config);
         return response.data;
     } catch (error) {
@@ -52,7 +52,7 @@ const assignTrainer = createAsyncThunk("post/assignTrainer", async (data,{reject
 
 const deleteTrainer = createAsyncThunk("delete/deleteTrainer", async (id,{rejectWithValue}) => {
     try {
-        const response = await axios.delete(`http://localhost:4000/api/deleteTrainer/${id}`);
+        const response = await axios.delete(`http://localhost:4000/api/deleteTrainer/${id}`,{withCredentials:true});
         return response.data;
     } catch (error) {
         return rejectWithValue(error.response.data);

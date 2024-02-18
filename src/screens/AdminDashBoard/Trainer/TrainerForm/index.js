@@ -1,12 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from './TrainerForm.module.sass'
 import cn from 'classnames'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { addTrainer } from '../../../../Store/TrainerActions'
-
+import { trainerAction } from '../../../../Store/TrainerReducer';
+import { useAlert } from 'react-alert'
 
 const TrainerForm = ({ setForm }) => {
+  const alert = useAlert();
   const dispatch = useDispatch();
+  const { addSuccess } = useSelector((state) => state.trainer);
   // State to manage form data
   const [formData, setFormData] = useState({
     name: '',
@@ -23,6 +26,15 @@ const TrainerForm = ({ setForm }) => {
     },
   });
 
+  useEffect(() => {
+
+    if (addSuccess) {
+      setForm(0)
+      dispatch(trainerAction.clearAddSuccess());
+      alert.success('Trainer has been added');
+    }
+
+  }, [dispatch, addSuccess]);
   // Handle form field changes
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -78,7 +90,6 @@ const TrainerForm = ({ setForm }) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     dispatch(addTrainer(formData));
-    setForm(0);
   };
 
   const handleChildClick = (event) => {

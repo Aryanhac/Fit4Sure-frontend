@@ -3,9 +3,11 @@ import styles from './Info.module.sass'
 import { useSelector, useDispatch } from 'react-redux'
 import { getConsultancyForm, updateConsultancy,getConsultancyForms } from '../../../../Store/ConsultancyActions'
 import { adminConsultancyAction } from '../../../../Store/ConsultancyReducer'
+import { useAlert } from 'react-alert'
 const Info = ({ setCurrentID, currentID, setType, type }) => {
 
   const dispatch = useDispatch();
+  const alert = useAlert();
   const { form, updateSuccess } = useSelector((state) => state.adminConsultancy);
 
 
@@ -13,6 +15,7 @@ const Info = ({ setCurrentID, currentID, setType, type }) => {
   useEffect(() => {
     if(updateSuccess){
       dispatch(adminConsultancyAction.clearUpdateSuccess());
+      alert.success('Consultancy has been updated');
       dispatch(getConsultancyForms("hello"));
     }
     dispatch(getConsultancyForm(currentID));

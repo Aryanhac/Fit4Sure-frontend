@@ -33,15 +33,17 @@ const Intro = ({ scrollToRef }) => {
         </div>
         <div className={styles.wrap}>
           <h2 className={cn("h1", styles.title)}>
-            Train smarter, get stronger.
+          Train SMART, Lose FAT faster
           </h2>
           <div className={styles.text}>
-            Fit4Sure helps track your workouts, get better results, and be
-            the best version of you. Less thinking, more lifting 🔥🏀
+          Fit4Sure helps track your weight loss journey and workouts to optimize results, empowering you to become the best version of yourself.
+ 🔥🏀
           </div>
+           
           <Link className={cn("button", styles.button)} onClick={() => window.location.replace("/#consultancy")}>
-            Get Consultancy
+            FREE Consulting
           </Link>
+          
         </div>
       </div>
     </div>

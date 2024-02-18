@@ -33,8 +33,9 @@ const Consultancy = () => {
         <div className={cn("container", styles.container)} id='consultancy'>
             <div className={styles.wrap}>
                 <div className={styles.information}>
-                    <div className={styles.headline}>Transform your health and start your journey to fitness today with the Fit4Sure</div>
-                    <div className={styles.description}>Fit4Sure helps track your workouts, get better results, and be the best version of you. Less thinking!</div>
+                    <div className={styles.headline}>Start your weight loss journey today with Fit4Sure, Start at just ₹ 999 per month*</div>
+                    <div className={styles.description}>Take the first step towards a healthier you! Fill out the form to schedule your free consultation with our team of fitness experts and start your weight loss journey today."
+</div>
                 </div>
                 {!mode ? <form onSubmit={handleSubmit} className={styles.form}>
                     <div>
@@ -86,7 +87,7 @@ const Consultancy = () => {
                         </div>
                     </div>
                     <div>
-                        <button type="submit" className={cn('button', styles.button)}>Get Consultancy</button>
+                        <button type="submit" className={cn('button', styles.button)}>Consult Now</button>
                     </div>
                 </form> : <div>We will contact you in 24 hours</div>
 

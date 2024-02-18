@@ -5,29 +5,14 @@ import ScrollParallax from "../ScrollParallax";
 
 const list = [
   {
-    title: "rotashow",
-    url: "/images/content/rotashow.svg",
+    title: "100+ Expert Trainers |",
   },
   {
-    title: "waves",
-    url: "/images/content/waves.svg",
+    title: "10,000+ People Trained |",
   },
   {
-    title: "rotashow",
-    url: "/images/content/rotashow.svg",
-  },
-  {
-    title: "travelers",
-    url: "/images/content/travelers.svg",
-  },
-  {
-    title: "goldlines",
-    url: "/images/content/goldlines.svg",
-  },
-  {
-    title: "velocity9",
-    url: "/images/content/velocity9.svg",
-  },
+    title: " 95% Success Rate",
+  }
 ];
 
 const Clients = () => {
@@ -35,12 +20,12 @@ const Clients = () => {
     <div className={styles.clients}>
       <div className={cn("container", styles.container)}>
         <ScrollParallax className={styles.title}>
-          Trusted by more than 2M users worldwide
+           Trusted by 10,000+ Users Worldwide
         </ScrollParallax>
         <div className={styles.list}>
           {list.map((x, index) => (
             <div className={styles.logo} key={index}>
-              <img src={x.url} alt={x.title} />
+               <div>{x.title}</div>
             </div>
           ))}
         </div>
