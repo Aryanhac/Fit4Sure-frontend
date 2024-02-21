@@ -60,7 +60,7 @@ const Footer = () => {
                             <Link className={styles.logo} to="/">
                                 <Image
                                     className={styles.pic}
-                                    src="/images/logo-dark.svg"
+                                    src="/images/logo-light.svg"
                                     srcDark="/images/logo-light.svg"
                                     alt="Fitness Pro"
                                 />
