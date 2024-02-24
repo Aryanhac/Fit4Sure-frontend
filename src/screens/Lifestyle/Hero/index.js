@@ -1,195 +1,24 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import cn from "classnames";
 import styles from "./Hero.module.sass";
 // import History from "./History";
 import Item from "./Item";
 import ScrollParallax from "../../../components/ScrollParallax";
+import { useDispatch, useSelector } from 'react-redux';
+import { getBlogs } from "../../../Store/BlogActions";
 
-const items = [
-  {
-    title: "Lifestyle",
-    items: [
-      {
-        url: "/article",
-        title: "7 Impossibly Hard Yoga Moves to Master",
-        avatar: "/images/content/avatar-5.png",
-        author: "Porter Daniel",
-        date: "Feb 03, 2021",
-        image: "/images/content/lifestyle-photo-1.png",
-        image2x: "/images/content/lifestyle-photo-1@2x.png",
-        category: "red",
-        categoryContent: "fitness",
-      },
-      {
-        url: "/article",
-        title: "Keep It Chill: How To Do a Water Salutation",
-        avatar: "/images/content/avatar-2.png",
-        author: "Clemens Reilly",
-        date: "Feb 03, 2021",
-        image: "/images/content/lifestyle-photo-2.png",
-        image2x: "/images/content/lifestyle-photo-2@2x.png",
-        category: "green",
-        categoryContent: "yoga",
-      },
-      {
-        url: "/article",
-        title: "Keep It Chill: How To Do a Water Salutation",
-        avatar: "/images/content/avatar-3.png",
-        author: "Lorine Parker",
-        date: "Feb 03, 2021",
-        image: "/images/content/lifestyle-photo-3.png",
-        image2x: "/images/content/lifestyle-photo-3@2x.png",
-        category: "pink",
-        categoryContent: "new",
-      },
-      {
-        url: "/article",
-        title: "7 Impossibly Hard Yoga Moves to Master",
-        avatar: "/images/content/avatar-1.png",
-        author: "Felipa Kub",
-        date: "Feb 03, 2021",
-        image: "/images/content/lifestyle-photo-4.png",
-        image2x: "/images/content/lifestyle-photo-4@2x.png",
-        category: "black",
-        categoryContent: "featured",
-      },
-      {
-        url: "/article",
-        title: "Fun Pose Friday: Half Camel With Raised Toe Pose",
-        avatar: "/images/content/avatar-4.png",
-        author: "Porter Daniel",
-        date: "Feb 03, 2021",
-        image: "/images/content/lifestyle-photo-5.png",
-        image2x: "/images/content/lifestyle-photo-5@2x.png",
-        category: "red",
-        categoryContent: "fitness",
-      },
-      {
-        url: "/article",
-        title: "7 Impossibly Hard Yoga Moves to Master",
-        avatar: "/images/content/avatar-2.png",
-        author: "Clemens Reilly",
-        date: "Feb 03, 2021",
-        image: "/images/content/lifestyle-photo-6.png",
-        image2x: "/images/content/lifestyle-photo-6@2x.png",
-        category: "green",
-        categoryContent: "fitness",
-      },
-    ],
-  },
-  {
-    title: "Fitness",
-    items: [
-      {
-        url: "/article",
-        title: "Keep It Chill: How To Do a Water Salutation",
-        avatar: "/images/content/avatar-2.png",
-        author: "Clemens Reilly",
-        date: "Feb 03, 2021",
-        image: "/images/content/lifestyle-photo-2.png",
-        image2x: "/images/content/lifestyle-photo-2@2x.png",
-        category: "green",
-        categoryContent: "yoga",
-      },
-      {
-        url: "/article",
-        title: "Keep It Chill: How To Do a Water Salutation",
-        avatar: "/images/content/avatar-3.png",
-        author: "Lorine Parker",
-        date: "Feb 03, 2021",
-        image: "/images/content/lifestyle-photo-3.png",
-        image2x: "/images/content/lifestyle-photo-3@2x.png",
-        category: "pink",
-        categoryContent: "new",
-      },
-      {
-        url: "/article",
-        title: "7 Impossibly Hard Yoga Moves to Master",
-        avatar: "/images/content/avatar-1.png",
-        author: "Felipa Kub",
-        date: "Feb 03, 2021",
-        image: "/images/content/lifestyle-photo-4.png",
-        image2x: "/images/content/lifestyle-photo-4@2x.png",
-        category: "black",
-        categoryContent: "featured",
-      },
-      {
-        url: "/article",
-        title: "Fun Pose Friday: Half Camel With Raised Toe Pose",
-        avatar: "/images/content/avatar-4.png",
-        author: "Porter Daniel",
-        date: "Feb 03, 2021",
-        image: "/images/content/lifestyle-photo-5.png",
-        image2x: "/images/content/lifestyle-photo-5@2x.png",
-        category: "red",
-        categoryContent: "fitness",
-      },
-      {
-        url: "/article",
-        title: "7 Impossibly Hard Yoga Moves to Master",
-        avatar: "/images/content/avatar-2.png",
-        author: "Clemens Reilly",
-        date: "Feb 03, 2021",
-        image: "/images/content/lifestyle-photo-6.png",
-        image2x: "/images/content/lifestyle-photo-6@2x.png",
-        category: "green",
-        categoryContent: "fitness",
-      },
-    ],
-  },
-  {
-    title: "Mindfulness",
-    items: [
-      {
-        url: "/article",
-        title: "7 Impossibly Hard Yoga Moves to Master",
-        avatar: "/images/content/avatar-5.png",
-        author: "Porter Daniel",
-        date: "Feb 03, 2021",
-        image: "/images/content/lifestyle-photo-1.png",
-        image2x: "/images/content/lifestyle-photo-1@2x.png",
-        category: "red",
-        categoryContent: "fitness",
-      },
-      {
-        url: "/article",
-        title: "Keep It Chill: How To Do a Water Salutation",
-        avatar: "/images/content/avatar-2.png",
-        author: "Clemens Reilly",
-        date: "Feb 03, 2021",
-        image: "/images/content/lifestyle-photo-2.png",
-        image2x: "/images/content/lifestyle-photo-2@2x.png",
-        category: "green",
-        categoryContent: "yoga",
-      },
-      {
-        url: "/article",
-        title: "Keep It Chill: How To Do a Water Salutation",
-        avatar: "/images/content/avatar-3.png",
-        author: "Lorine Parker",
-        date: "Feb 03, 2021",
-        image: "/images/content/lifestyle-photo-3.png",
-        image2x: "/images/content/lifestyle-photo-3@2x.png",
-        category: "pink",
-        categoryContent: "new",
-      },
-      {
-        url: "/article",
-        title: "7 Impossibly Hard Yoga Moves to Master",
-        avatar: "/images/content/avatar-1.png",
-        author: "Felipa Kub",
-        date: "Feb 03, 2021",
-        image: "/images/content/lifestyle-photo-4.png",
-        image2x: "/images/content/lifestyle-photo-4@2x.png",
-        category: "black",
-        categoryContent: "featured",
-      },
-    ],
-  },
-];
 
 const Hero = () => {
   const [activeIndex, setActiveIndex] = useState(0);
+  const dispatch = useDispatch();
+  
+  const { Blogs } = useSelector((state) => state.blog);
+
+  useEffect(() => {
+    dispatch(getBlogs("hello"));
+  }, [dispatch]);
+
+
   return (
     <div className={cn("section", styles.section)}>
       <div className={cn("container", styles.container)}>
@@ -200,7 +29,7 @@ const Hero = () => {
         </div>
         {/* <History /> */}
         <div className={styles.nav}>
-          {items.map((x, index) => (
+          {Blogs.length>0&&Blogs.map((x, index) => (
             <button
               className={cn(styles.btn, {
                 [styles.active]: index === activeIndex,
@@ -213,7 +42,7 @@ const Hero = () => {
           ))}
         </div>
         <div className={styles.list}>
-          {items[activeIndex].items.map((x, index) => (
+          {Blogs.length>0&&Blogs[activeIndex].items.map((x, index) => (
             <ScrollParallax className={styles.box} key={index}>
               <Item item={x} className={styles.item} />
             </ScrollParallax>

@@ -54,12 +54,6 @@ const Blog = () => {
       flex: 0.2
     },
     {
-      field: "info",
-      headerName: "Info",
-      minWidth: 100,
-      flex: 0.2
-    },
-    {
       field: 'action',
       headerName: 'Action',
       minWidth: 100,
@@ -88,7 +82,6 @@ const Blog = () => {
         id: data._id,
         title: data.title,
         type: element.title,
-        info: data.info
       });
     })
   });

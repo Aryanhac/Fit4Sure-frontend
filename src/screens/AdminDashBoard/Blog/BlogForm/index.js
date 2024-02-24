@@ -14,19 +14,17 @@ const BlogForm = ({ setForm }) => {
     const [formData, setFormData] = useState({
         type: 'Fitness', // Default type
         items: {
-            info: '',
             author: '',
             outsideimage: null,
             innerimage: null,
-            category: '#000000',
+            category: 'red',
             categoryContent: 'yoga',
-            para1: '',
-            para2: '',
-            title: '',
+            para: '',
         },
     });
 
     const categoryOptions = ["yoga", "new", "featured"];
+    const category = ["red","green","pink","black"];
 
     useEffect(() => {
         if (addSuccess) {
@@ -46,6 +44,7 @@ const BlogForm = ({ setForm }) => {
                 [name]: value,
             },
         }));
+        console.log(formData)
     };
 
 
@@ -106,13 +105,7 @@ const BlogForm = ({ setForm }) => {
                             Type:
                             <select name="type" value={formData.type} onChange={handleInputChange} required>
                                 <option value="Fitness">Fitness</option>
-                                <option value="Lifestyle">Lifestyle</option>
-                                <option value="Mindfulness">Mindfulness</option>
                             </select>
-                        </label>
-                        <label>
-                            Info:
-                            <input type="text" name="info" value={formData.items.info} onChange={handleItemsChange} required />
                         </label>
                         <label>
                             Author:
@@ -120,7 +113,11 @@ const BlogForm = ({ setForm }) => {
                         </label>
                         <label>
                             Category:
-                            <input type="color" name="category" value={formData.items.category} onChange={handleItemsChange} required />
+                            <select name="category" value={formData.items.category} onChange={handleItemsChange} required>
+                                {category.map((option, index) => (
+                                    <option key={index} value={option}>{option}</option>
+                                ))}
+                            </select>
                         </label>
 
                     </div>
@@ -136,12 +133,8 @@ const BlogForm = ({ setForm }) => {
                             </select>
                         </label>
                         <label>
-                            Para1:
-                            <input type="text" name="para1" value={formData.items.para1} onChange={handleItemsChange} required />
-                        </label>
-                        <label>
-                            Para2:
-                            <input type="text" name="para2" value={formData.items.para2} onChange={handleItemsChange} required />
+                            Para:
+                            <textarea type="text" name="para" value={formData.items.para} onChange={handleItemsChange} required />
                         </label>
                         <label>
                             Outside Image:

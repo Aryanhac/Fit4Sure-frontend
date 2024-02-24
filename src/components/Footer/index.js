@@ -47,7 +47,7 @@ const socials = [
 ];
 
 const Footer = () => {
-    const [visible, setVisible] = useState(false);
+    const [visible, setVisible] = useState(true);
 
     const { pathname } = useLocation();
 
@@ -67,23 +67,19 @@ const Footer = () => {
                             </Link>
                         </div>
                         <div
-                            className={cn(styles.item, {
-                                [styles.active]: visible,
-                            })}
+                            className={styles.item}
                         >
-                            <div
+                            {/* <div
                                 className={styles.category}
                                 onClick={() => setVisible(!visible)}
                             >
                                 footer nav
                                 <Icon name="arrow-bottom" size="9" />
-                            </div>
+                            </div> */}
                             <div className={styles.menu}>
                                 {menu.map((x, index) => (
                                     <NavLink
-                                        className={cn(styles.link, {
-                                            [styles.active]: pathname === x.url,
-                                        })}
+                                        className={styles.link}
                                         to={x.url}
                                         key={index}
                                     >
@@ -96,10 +92,7 @@ const Footer = () => {
                     <div className={styles.col}>
                         <div className={styles.category}>contact</div>
                         <div className={styles.info}>
-                            <p>43252 Borer Mountains</p>
-                            <p>Zackerychester</p>
-                            <p>Bahamas</p>
-                            <p>732-528-4945</p>
+                            <p>Jaipur</p>
                         </div>
                     </div>
                 </div>

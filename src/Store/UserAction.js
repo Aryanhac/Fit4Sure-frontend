@@ -5,7 +5,7 @@ import axios from "axios";
 const getOTP = createAsyncThunk("post/postGetLogin", async (data,{rejectWithValue}) => {
     try {
         const config={headers:{"Content-Type":"application/json"}};
-        const response = await axios.post(`http://localhost:4000/api/getOTP`,data,config);
+        const response = await axios.post(`http://fit4sure.in/api/getOTP`,data,config);
         return response.data;
     }catch(error) {
         return rejectWithValue(error.response.data.message);
@@ -16,7 +16,7 @@ const getOTP = createAsyncThunk("post/postGetLogin", async (data,{rejectWithValu
 const otpVerification = createAsyncThunk("post/postOTPVerification", async (data,{rejectWithValue}) => {
     try {
         const config={headers:{"Content-Type":"application/json"}, withCredentials: true};
-        const response = await axios.post(`http://localhost:4000/api/otpVerification`,data,config);
+        const response = await axios.post(`http://fit4sure.in/api/otpVerification`,data,config);
         return response.data;
     }catch(error) {
         return rejectWithValue(error.response.data.message);
@@ -26,7 +26,7 @@ const otpVerification = createAsyncThunk("post/postOTPVerification", async (data
 // getting user after loading the page 
 const loadUser = createAsyncThunk("get/getLoadUser", async (data,{rejectWithValue}) => {
     try {
-        const response = await axios.get(`http://localhost:4000/api/profile`,{withCredentials:true});
+        const response = await axios.get(`http://fit4sure.in/api/profile`,{withCredentials:true});
         return response.data;
     } catch (error) {
         return rejectWithValue(error.response.data.message);
@@ -36,7 +36,7 @@ const loadUser = createAsyncThunk("get/getLoadUser", async (data,{rejectWithValu
 //LogOut
 const logOutUser= createAsyncThunk("get/getLogOut", async (data,{rejectWithValue}) => {
     try {
-        const response = await axios.get(`http://localhost:4000/api/logOut`,{withCredentials:true});
+        const response = await axios.get(`http://fit4sure.in/api/logOut`,{withCredentials:true});
         return response.data;
     } catch (error) {
         return rejectWithValue(error.response.data.message);

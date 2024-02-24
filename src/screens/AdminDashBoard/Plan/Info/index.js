@@ -19,6 +19,7 @@ const Info = ({ setCurrentID, currentID }) => {
     price: '',
     note: '',
     button: '',
+    strikePrice:'',
     options: Array(13).fill(false),
   });
 
@@ -102,6 +103,9 @@ const Info = ({ setCurrentID, currentID }) => {
               </p>
               <p>
                 <strong>Price:</strong> {update ? <input type="text" name="price" value={formData.price} onChange={handleInputChange} required /> : Plan.price}
+              </p>
+              <p>
+                <strong>Strike Price:</strong> {update ? <input type="text" name="strikePrice" value={formData.strikePrice} onChange={handleInputChange} required /> : Plan.strikePrice}
               </p>
               <p>
                 <strong>Note:</strong> {update ? <input type="text" name="note" value={formData.note} onChange={handleInputChange} required /> : Plan.note}

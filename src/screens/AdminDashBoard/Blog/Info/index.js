@@ -13,14 +13,12 @@ const Info = ({ setCurrentID, currentID }) => {
   const [update, setUpdate] = useState(false);
 
   const [formData, setFormData] = useState({
-    info: '',
     author: '',
     outsideimage: null,
     innerimage: null,
-    category: '#000000',
+    category: 'red',
     categoryContent: 'yoga',
-    para1: '',
-    para2: '',
+    para: '',
     title: '',
   });
 
@@ -91,6 +89,7 @@ const handleItemsChange = (event) => {
 };
 
   const categoryOptions = ["yoga", "new", "featured"];
+  const category = ["red","green","pink","black"];
 
   return (
     <div className={styles.section} onClick={() => { setCurrentID(null); setUpdate(false) }}>
@@ -106,13 +105,17 @@ const handleItemsChange = (event) => {
                 <strong>Type:</strong> {currentID.title}
               </p>
               <p>
-                <strong>Info:</strong> {update ? <input type="text" name="info" value={formData.info} onChange={handleInputChange} required /> : <input type='textarea' value={Blog.info}></input>}
-              </p>
-              <p>
                 <strong>Author:</strong> {update ? <input type="text" name="author" value={formData.author} onChange={handleInputChange} required /> : Blog.author}
               </p>
               <p>
-                <strong>Cate:</strong> {update ? <input type="color" name="category" value={formData.category} onChange={handleInputChange} required /> : <input type='color' value={Blog.category}></input>}
+                <strong>Cate:</strong> {update ? <label>
+                            Category:
+                            <select name="category" value={formData.category} onChange={handleItemsChange} required>
+                                {category.map((option, index) => (
+                                    <option key={index} value={option}>{option}</option>
+                                ))}
+                            </select>
+                        </label> : <input type='text' value={Blog.category}></input>}
               </p>
             </div>
             <div className={styles.box1}>
@@ -127,10 +130,7 @@ const handleItemsChange = (event) => {
                 <strong>Date:</strong> { Blog.date}
               </p>
               <p>
-                <strong>Para1:</strong> {update ? <input type="textarea" name="para1" value={formData.para1} onChange={handleInputChange} required /> : <input type='textarea' value={Blog.para1}></input>}
-              </p>
-              <p>
-                <strong>Para2:</strong> {update ? <input type="textarea" name="para2" value={formData.para2} onChange={handleInputChange} required /> : <input type='textarea' value={Blog.para2}></input>}
+                <strong>Para:</strong> {update ? <textarea name="para" value={formData.para} onChange={handleInputChange} required /> : <textarea  value={Blog.para}></textarea>}
               </p>
               <p>
                 <strong>OutImage:</strong> {update ? <input type="file" name="outsideimage" onChange={(e) => handleImageChange(e, 'image1')} accept="image/*" /> : <a href={Blog.outsideimage} target='_blank'>outsideimage</a> }

@@ -20,6 +20,7 @@ const PlanForm = ({ setForm }) => {
         price: '',
         note: '',
         button: '',
+        strikePrice:'',
         options: Array(13).fill(false),
     });
 
@@ -104,6 +105,11 @@ const PlanForm = ({ setForm }) => {
                         <label>
                             Price:
                             <input type="text" name="price" value={formData.price} onChange={handleInputChange} required />
+                        </label>
+                        
+                        <label>
+                            Strike Price:
+                            <input type="text" name="strikePrice" value={formData.strikePrice} onChange={handleInputChange} required />
                         </label>
 
                         <label>

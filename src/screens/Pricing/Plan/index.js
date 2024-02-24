@@ -145,10 +145,12 @@ const Plan = () => {
                   <div className={styles.description}>{type.description}</div>
                   {type.price && (
                     <>
+                       <div><s>&#8377;{type.strikePrice}</s></div>
                       <div className={styles.cost}>
                         <span className={styles.sign}>&#8377;</span>{" "}
                         <span className={styles.price}>{type.price}</span>
                       </div>
+                       
                       <div className={styles.note}>{type.note}</div>
                     </>
                   )}

@@ -119,7 +119,7 @@ const Headers = () => {
                                 "button button-small",
                                 styles.button
                             )}
-                            to='https://wa.me/9897446147?text="Hello Are you from Fit4Sure?"'
+                            to='https://wa.me/?text="Hello Are you from Fit4Sure?"'
                         >
                             What’s App
                         </Link>
@@ -137,7 +137,7 @@ const Headers = () => {
                 </div>
                 <Link
                     className={cn("button button-small", styles.button)}
-                    to='https://wa.me/9897446147?text="Hello Are you from Fit4Sure?"'
+                    to='https://wa.me/?text="Hello Are you from Fit4Sure?"'
                     target="_blank"
                 >
                     What’s App

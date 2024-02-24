@@ -52,7 +52,7 @@ function App() {
                     }
                 />
                 <Route
-                    path="article"
+                    path="/article/:id"
                     element={
                         <Page>
                             <Article />

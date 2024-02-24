@@ -5,9 +5,9 @@ import styles from "./Item.module.sass";
 
 const Item = ({ item, className }) => {
   return (
-    <Link className={cn(styles.item, className)} to={item.url}>
+    <Link className={cn(styles.item, className)} to={`/article/${item._id}`}>
       <div className={styles.preview}>
-        <img srcSet={`${item.image2x} 2x`} src={item.image} alt={item.status} />
+        <img  src={item.outsideimage} alt={item.outsideimage} />
       </div>
       <div
         className={cn(
